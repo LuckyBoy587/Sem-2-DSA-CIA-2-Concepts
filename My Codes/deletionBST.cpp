@@ -67,4 +67,8 @@ int main(){
         if (root == nullptr) root = new Node(num);
         else insert(root, num);
     }
+
+    int target;
+    cin >> target;
+    deleteNode(root, target);
 }
