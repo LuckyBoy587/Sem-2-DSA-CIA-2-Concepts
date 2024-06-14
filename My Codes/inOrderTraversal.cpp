@@ -26,8 +26,8 @@ void insert(Node *root, int data) {
 void inOrder(Node *root) {
     if (root != nullptr) {
         inOrder(root->left);
-        inOrder(root->right);
         cout << root->data << ' ';
+        inOrder(root->right);
     }
 }
 
