@@ -1,17 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool dfs(int start, map<int, vector<int>>& graph, set<int> visited) {
+void dfs(int start, map<int, vector<int>>& graph, set<int>& visited) {
     visited.insert(start);
     cout << start << ' ';
 
     for (int dest: graph[start]) {
         if (visited.find(dest) == visited.end()) {
-            if (dfs(dest, graph, visited)) return true;
-        } else return true;
+            dfs(dest, graph, visited);
+        }
     }
-
-    return false;
 }
 
 int main(){
@@ -22,8 +20,12 @@ int main(){
         int st, end;
         cin >> st >> end;
         graph[st].push_back(end);
+        graph[end].push_back(st);
     }
 
     cout << "DFS Traversal: ";
-    dfs(0, graph, set<int>());
+    set<int> visited;
+    int startVertex;
+    cin >> startVertex;
+    dfs(startVertex, graph, visited);
 }

@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool bfs(int start, map<int, vector<int>>& graph) {
+void bfs(int start, map<int, vector<int>>& graph) {
     set<int> visited;
     queue<int> q;
 
@@ -17,11 +17,9 @@ bool bfs(int start, map<int, vector<int>>& graph) {
             if (visited.find(dest) == visited.end()) {
                 visited.insert(dest);
                 q.push(dest);
-            } else return true;
+            }
         }
     }
-
-    return false;
 }
 
 int main(){
@@ -32,8 +30,10 @@ int main(){
         int st, end;
         cin >> st >> end;
         graph[st].push_back(end);
+        graph[end].push_back(st);
     }
-
+    int startVertex;
+    cin >> startVertex;
     cout << "BFS Traversal: ";
-    bfs(0, graph);
+    bfs(startVertex, graph);
 }
