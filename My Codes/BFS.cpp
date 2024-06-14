@@ -7,7 +7,6 @@ bool bfs(int start, map<int, vector<int>>& graph) {
 
     visited.insert(start);
     q.push(start);
-    cout << start << ' ';
 
     while (!q.empty()) {
         int currVertex = q.front();
