@@ -27,15 +27,12 @@ void levelOrder(Node *root) {
     queue<Node*> q;
     q.push(root);
     while (!q.empty()) {
-        int len = q.size();
-        for (int i=0; i<len; i++) {
-            Node *curr = q.front();
-            cout << curr->data << ' ';
-            q.pop();
+        Node *curr = q.front();
+        cout << curr->data << ' ';
+        q.pop();
 
-            if (curr->left != nullptr) q.push(curr->left);
-            if (curr->right != nullptr) q.push(curr->right);
-        }
+        if (curr->left != nullptr) q.push(curr->left);
+        if (curr->right != nullptr) q.push(curr->right);
     }
 }
 
